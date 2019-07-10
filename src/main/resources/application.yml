@@ -1,0 +1,59 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /
+
+spring:
+  aop:
+    auto: true
+  application:
+    name: bduid
+# 本地数据库
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+    username: ENC(PBUimP0gfdMhz+Ls1GJJ2Q==)
+    password: ENC(YoKfyzXZ2zIe8GUm4SshcQDTWY7FtcXI)
+    driverClassName: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      pool-name: db-pool
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+# redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 14
+    password:
+    timeout: 1000ms
+#  redis集群
+#    cluster:
+#      nodes:
+#        - 127.0.0.1:6379
+#        - 127.0.0.1:6380
+#        - 127.0.0.1:6381
+#  redis连接池
+#    lettuce:
+#      pool:
+#        max-active: 100  #连接池最大连接数（使用负值表示没有限制）
+#        max-idle: 10 # 连接池中的最大空闲连接
+#        min-idle: 5 # 连接池中的最小空闲连接
+#        max-wait: -1ms # 连接池最大阻塞等待时间（使用负值表示没有限制）
+#    sentinel:
+#      master: master6019
+#      nodes: 127.0.0.1:16019,127.0.0.1:16019,127.0.0.1:16019
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+
+# 在启动命令行中传参数
+#jasypt:
+#  encryptor:
+#    password: salt
+
+# 打印sql语句
+logging:
+  level:
+    com.xzj.stu.uuid.dao: DEBUG

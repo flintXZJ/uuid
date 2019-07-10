@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzj.stu.uuid.dao.UuidMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xzj.stu.uuid.pojo.UuidPO">
+        <result column="id" property="id" />
+        <result column="no_used_cloumn" property="noUsedCloumn" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.xzj.stu.uuid.pojo.UuidPO" useGeneratedKeys="true" keyProperty="id">
+        insert into uuid (id, no_used_cloumn)
+        values (#{id,jdbcType=BIGINT}, #{noUsedCloumn,jdbcType=INTEGER})
+    </insert>
+
+</mapper>
